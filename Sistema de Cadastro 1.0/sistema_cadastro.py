@@ -78,10 +78,34 @@ def cadastrar() :
 	qtd_itens = int(qtd_itens)
 	for contador in range ( 0, qtd_itens ) :
 
-		itens["Nome"] = str(input("Digite o nome do produto : ")).strip()
-		itens["Descricao"] = str(input("Digite a descrição do produto : ")).strip()
-		itens["Quantidade"] = int(input("Digite a quantidade a ser cadastrada : "))
-		itens["Valor"] = float(input("Digite o valor unitário do produto : "))
+		while True:
+			itens["Nome"] = str(input("Digite o nome do produto : ")).strip()
+			if itens["Nome"]:
+				break
+			print("O nome deve ser informado")
+		while True:
+			itens["Descricao"] = str(input("Digite a descrição do produto : ")).strip()
+			if itens['Descricao']:
+				break
+			print("A descrição deve ser informada!")
+
+		while True:
+			quantidade_itens = input("Digite a quantidade a ser cadastrada : ").strip()
+			if quantidade_itens.isdigit():
+				itens["Quantidade"] = quantidade_itens
+				break
+			print("Quantidade inválida!")
+   
+		while True:
+			valor_item = input("Digite o valor unitário do produto : ").strip().replace(',','.')
+			try:
+				valor_item = float(valor_item)
+			except:
+				pass
+			if isinstance(valor_item, float):
+				itens["Valor"] = valor_item
+				break
+			print('Valor informado é inválido!')
 		print()
 		lista_produtos.append(itens.copy())
 		itens.clear()
