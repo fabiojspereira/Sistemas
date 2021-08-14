@@ -69,7 +69,7 @@ def cadastrar() :
 	continua_001 = True
 	while continua_001 == True :
 		qtd_itens = str(input("Digite a quantidade de produtos a serem cadastrados : ")).strip()
-		if qtd_itens not in ("1234567890") :
+		if qtd_itens.isnumeric() == False :
 			print("Digite apenas números.")
 			continua_001 = True
 		else:
