@@ -1,0 +1,2 @@
+{'Nome': 'Celular Iphone XS', 'Descricao': 'Celular Iphone XS 4GB RAM, 32GB de armazenamento interno.', 'Quantidade': '10', 'Valor': 6350.99}
+{'Nome': 'Celular Huawei P30 Pro', 'Descricao': 'Celular Huawei P30 Pro 8GB RAM, 256GB de armazenamento Interno.', 'Quantidade': '10', 'Valor': 3200.0}

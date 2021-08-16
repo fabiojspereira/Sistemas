@@ -108,6 +108,7 @@ def cadastrar() :
 			print('Valor informado é inválido!')
 		print()
 		lista_produtos.append(itens.copy())
+		salvar_produto(itens)
 		itens.clear()
 
 
@@ -127,9 +128,24 @@ def remover() :
 	limpa_tela()
 	print("Remoção de Produto cadastrado")
 
+# SALVA OS DADOS DO PRODUTO NO ARQUIVO.
+def salvar_produto(dados_produto):	   
+    with open('produtos.txt','a') as produtos:
+        produtos.write(f'{str(dados_produto)}\n')
+
+# CARREGA OS DADOS DO PRODUTO QUE ESTÃO SALVOS NO ARQUIVO.
+def ler_produtos():
+    with open('produtos.txt','r') as produtos:
+       lista = produtos.readlines()
+    for linha in lista:       
+        lista_produtos.append(eval(linha.strip()))
+    
+    return lista_produtos	  
 
 # PROGRAMA PRINCIPAL
 print(f"{'Programa : Cadastro 1.0':<60}")
 print()
+
+ler_produtos()
 
 menu_principal()
