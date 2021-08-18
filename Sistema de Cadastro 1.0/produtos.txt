@@ -1,2 +1,4 @@
-{'Nome': 'Celular Iphone XS', 'Descricao': 'Celular Iphone XS 4GB RAM, 32GB de armazenamento interno.', 'Quantidade': '10', 'Valor': 6350.99}
-{'Nome': 'Celular Huawei P30 Pro', 'Descricao': 'Celular Huawei P30 Pro 8GB RAM, 256GB de armazenamento Interno.', 'Quantidade': '10', 'Valor': 3200.0}
+{'Nome': 'Smartphone Iphone XS', 'Descricao': 'Smartphone Iphone XS 4GB RAM, 32GB de armazenamento interno', 'Quantidade': '25', 'Valor': 6350.99, 'valor total': 158774.75}
+{'Nome': 'Smartphone Huawei P30 Pro', 'Descricao': 'Smartphone Huawei P30 Pro 8GB RAM, 256GB de armazenamento Interno', 'Quantidade': '20', 'Valor': 3200.0, 'valor total': 64000.0}
+{'Nome': 'Smartphone Xiaomi Mi Note 10', 'Descricao': 'Smartphone Xiaomi Mi Note 10 128GB Versão Global', 'Quantidade': '50', 'Valor': 3370.0, 'valor total': 168500.0}
+{'Nome': 'Smartphone Samsung Galaxy S21', 'Descricao': 'Smartphone Samsung Galaxy S21 128GB 5G Wi-Fi Tela 6.2 8GB RAM', 'Quantidade': '12', 'Valor': 3828.99, 'valor total': 45947.88}
