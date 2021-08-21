@@ -144,9 +144,25 @@ def consultar():
 
 # ROTINA PARA EXIBIR O MENU REMOVER
 def remover():
-	limpa_tela()
-	print("Remoção de Produto cadastrado")
+	while True:
+		limpa_tela()
+		print("Remoção de Produto cadastrado\n")
+		consultar()
+		codigo_produto = input("Informe o código do produto: ")
 
+		for item in lista_produtos:
+			if item["Codigo"] == codigo_produto:
+				produto = item
+				lista_produtos.remove(item)
+				print(f"O produto {item['Nome']} foi removido!")
+				break
+		
+		
+		atualizar_base(lista_produtos)
+
+		continua_004 = input("Deseja sair [S / N]? ").lower()
+		if continua_004 == "s":
+			break
 
 # SALVA OS DADOS DO PRODUTO NO ARQUIVO.
 def salvar_produto(dados_produto):
@@ -164,6 +180,14 @@ def ler_produtos():
 
 	return lista_produtos
 
+
+def atualizar_base(l_pro):
+    with open('produtos.txt', 'w') as base:
+        base.write('')
+    for produto in l_pro:
+        salvar_produto(produto)
+        
+        
 
 # PROGRAMA PRINCIPAL
 print(f"{'Programa : Cadastro 1.0':<60}")
