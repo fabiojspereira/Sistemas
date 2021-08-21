@@ -3,3 +3,4 @@
 {'Codigo': '54','Nome': 'Smartphone Xiaomi Mi Note 10', 'Descricao': 'Smartphone Xiaomi Mi Note 10 128GB Vers�o Global', 'Quantidade': '50', 'Valor': 3370.0, 'valor total': 168500.0}
 {'Codigo': '22','Nome': 'Smartphone Samsung Galaxy S21', 'Descricao': 'Smartphone Samsung Galaxy S21 128GB 5G Wi-Fi Tela 6.2 8GB RAM', 'Quantidade': '12', 'Valor': 3828.99, 'valor total': 45947.88}
 {'Codigo': '120', 'Nome': 'Coca-cola', 'Descricao': 'Refrigerante Coca-cola 350ml.', 'Quantidade': '10', 'Valor': 3.5, 'valor total': 35.0}
+{'Codigo': '21', 'Nome': 'Apple MacBook Pro 13"', 'Descricao': 'Apple MacBook Pro 13", Chip M1, 8GB RAM, 256GB SSD - Space Gray', 'Quantidade': '10', 'Valor': 9199.0, 'valor total': 91990.0}

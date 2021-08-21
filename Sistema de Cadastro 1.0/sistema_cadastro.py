@@ -79,10 +79,17 @@ def cadastrar():
      
 		while True:
 			codigo_produto = input("Digite o código do produto : ")
+			if not codigo_produto.isdigit():
+				print("Codigo do produto inválido!")
+				continue
+			for produto in lista_produtos:
+				if produto['Codigo'] == codigo_produto:
+					print("O código informado já exste cadastrado")
+					codigo_produto = ''
+					continue
 			if codigo_produto.isdigit():
 				itens["Codigo"] = codigo_produto
 				break
-			print("Codigo do produto inválido!")
 		while True:
 			itens["Nome"] = str(input("Digite o nome do produto : ")).strip()
 			if itens["Nome"]:
