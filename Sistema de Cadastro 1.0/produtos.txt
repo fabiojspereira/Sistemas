@@ -1,4 +1,5 @@
-{'Nome': 'Smartphone Iphone XS', 'Descricao': 'Smartphone Iphone XS 4GB RAM, 32GB de armazenamento interno', 'Quantidade': '25', 'Valor': 6350.99, 'valor total': 158774.75}
-{'Nome': 'Smartphone Huawei P30 Pro', 'Descricao': 'Smartphone Huawei P30 Pro 8GB RAM, 256GB de armazenamento Interno', 'Quantidade': '20', 'Valor': 3200.0, 'valor total': 64000.0}
-{'Nome': 'Smartphone Xiaomi Mi Note 10', 'Descricao': 'Smartphone Xiaomi Mi Note 10 128GB Versão Global', 'Quantidade': '50', 'Valor': 3370.0, 'valor total': 168500.0}
-{'Nome': 'Smartphone Samsung Galaxy S21', 'Descricao': 'Smartphone Samsung Galaxy S21 128GB 5G Wi-Fi Tela 6.2 8GB RAM', 'Quantidade': '12', 'Valor': 3828.99, 'valor total': 45947.88}
+{'Codigo': '11','Nome': 'Smartphone Iphone XS', 'Descricao': 'Smartphone Iphone XS 4GB RAM, 32GB de armazenamento interno', 'Quantidade': '25', 'Valor': 6350.99, 'valor total': 158774.75}
+{'Codigo': '31','Nome': 'Smartphone Huawei P30 Pro', 'Descricao': 'Smartphone Huawei P30 Pro 8GB RAM, 256GB de armazenamento Interno', 'Quantidade': '20', 'Valor': 3200.0, 'valor total': 64000.0}
+{'Codigo': '54','Nome': 'Smartphone Xiaomi Mi Note 10', 'Descricao': 'Smartphone Xiaomi Mi Note 10 128GB Versï¿½o Global', 'Quantidade': '50', 'Valor': 3370.0, 'valor total': 168500.0}
+{'Codigo': '22','Nome': 'Smartphone Samsung Galaxy S21', 'Descricao': 'Smartphone Samsung Galaxy S21 128GB 5G Wi-Fi Tela 6.2 8GB RAM', 'Quantidade': '12', 'Valor': 3828.99, 'valor total': 45947.88}
+{'Codigo': '120', 'Nome': 'Coca-cola', 'Descricao': 'Refrigerante Coca-cola 350ml.', 'Quantidade': '10', 'Valor': 3.5, 'valor total': 35.0}

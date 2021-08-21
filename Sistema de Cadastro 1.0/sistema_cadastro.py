@@ -76,6 +76,13 @@ def cadastrar():
 
 	qtd_itens = int(qtd_itens)
 	for contador in range(0, qtd_itens):
+     
+		while True:
+			codigo_produto = input("Digite o código do produto : ")
+			if codigo_produto.isdigit():
+				itens["Codigo"] = codigo_produto
+				break
+			print("Codigo do produto inválido!")
 		while True:
 			itens["Nome"] = str(input("Digite o nome do produto : ")).strip()
 			if itens["Nome"]:
@@ -122,9 +129,9 @@ def consultar():
 	limpa_tela()
 	print("Consulta de Produto cadastrado")
 	print(f"Quantidade de produtos cadastrados: {len(lista_produtos)}\n")
-	print(f"{'NOME':<35}{'DESCRIÇÃO':<72}{'QUANTIDADE':<10}{'VALOR UNITÁRIO':>17}{'VALOR TOTAL DO PRODUTO':>27}")
+	print(f"{'CÓDIGO':<10}{'NOME':<35}{'DESCRIÇÃO':<72}{'QUANTIDADE':<10}{'VALOR UNITÁRIO':>17}{'VALOR TOTAL DO PRODUTO':>27}")
 	for contador in range(0, len(lista_produtos)):
-		print(f"{lista_produtos[contador]['Nome']:<35}{lista_produtos[contador]['Descricao']:<72}{lista_produtos[contador]['Quantidade']:>10}{'R$':>5}{lista_produtos[contador]['Valor']:>12.2f}{'R$':>7}{lista_produtos[contador]['valor total']:>20.2f}")
+		print(f"{lista_produtos[contador]['Codigo']:<10}{lista_produtos[contador]['Nome']:<35}{lista_produtos[contador]['Descricao']:<72}{lista_produtos[contador]['Quantidade']:>10}{'R$':>5}{lista_produtos[contador]['Valor']:>12.2f}{'R$':>7}{lista_produtos[contador]['valor total']:>20.2f}")
 	print()
 
 
