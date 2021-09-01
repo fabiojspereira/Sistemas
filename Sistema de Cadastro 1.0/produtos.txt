@@ -5,3 +5,5 @@
 {'Codigo': '120', 'Nome': 'Coca-cola', 'Descricao': 'Refrigerante Coca-cola 350ml', 'Quantidade': '10', 'Valor': 3.5, 'valor total': 35.0}
 {'Codigo': '21', 'Nome': 'Apple MacBook Pro 13"', 'Descricao': 'Apple MacBook Pro 13", Chip M1, 8GB RAM, 256GB SSD - Space Gray', 'Quantidade': '10', 'Valor': 9199.0, 'valor total': 91990.0}
 {'Codigo': '2', 'Nome': 'Produto 002', 'Descricao': 'Descrição do produto 002', 'Quantidade': '2200', 'Valor': 2.22, 'valor total': 4884.0}
+{'Codigo': '1', 'Nome': 'Produto 001', 'Descricao': 'Descrição do produto 001', 'Quantidade': '1100', 'Valor': 1.11, 'valor total': 1221.0}
+{'Codigo': '3', 'Nome': 'Produto 003', 'Descricao': 'Descrição do produto 003', 'Quantidade': '3000', 'Valor': 3.33, 'valor total': 9990.0}

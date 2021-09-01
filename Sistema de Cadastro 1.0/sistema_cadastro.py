@@ -131,16 +131,16 @@ def cadastrar():
 
 # Até aqui por enquanto.
 
-	valor_item = float(valor_item)
-	quantidade_itens = int(quantidade_itens)
+		valor_item = float(valor_item)
+		quantidade_itens = int(quantidade_itens)
 
-	itens["valor total"] = ( quantidade_itens * valor_item )
+		itens["valor total"] = ( quantidade_itens * valor_item )
 
-	print()
+		print()
 
-	lista_produtos.append(itens.copy())
-	salvar_produto(itens)
-	itens.clear()
+		lista_produtos.append(itens.copy())
+		salvar_produto(itens)
+		itens.clear()
 
 
 # ROTINA PARA EXIBIR O MENU CONSULTAR
