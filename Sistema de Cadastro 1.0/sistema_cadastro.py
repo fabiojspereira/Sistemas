@@ -69,9 +69,9 @@ def menu_principal():
 def cadastrar():
 	limpa_tela()
 	print("\nMENU CADASTRO DE PRODUTO")
+
 	continua_001 = True
-	continua_002 = True
-	continua_003 = True
+
 	while continua_001 == True:
 		qtd_itens = str(input("Digite a quantidade de produtos a serem cadastrados : "))
 		if qtd_itens.isnumeric() == False:
@@ -83,22 +83,30 @@ def cadastrar():
 	qtd_itens = int(qtd_itens)
 
 	for contador_001 in range(0, qtd_itens):
+
+		continua_002 = True
 		while continua_002 == True:
-			itens['Codigo'] = input("Digite o código do produto : ")
-			if itens['Codigo'].isdigit() == False:
-				print("\nCódigo do produto inválido ! Tente novamente ...")
-				continua_002 = True
-			else :
-				continua_002 = False
 
+			continua_003 = True
 			while continua_003 == True:
-				for contador_002 in range(0, len(lista_produtos)):
-					if itens['Codigo'] == lista_produtos[contador_002]['Codigo']:
-						print("\nO código informado já pertence a um item cadastrado ! Tente novamente ...")
-						continua_003 = False
-						continua_002 = True
+				itens['Codigo'] = input("\nDigite o código do produto : ")
+				if itens['Codigo'].isdigit() == False:
+					print("\nCódigo do produto inválido ! Tente novamente ...")
+					continua_003 = True
+				else :
+					continua_003 = False
 
-'''
+			for contador_002 in range(0, len(lista_produtos)):
+				if itens['Codigo'] == lista_produtos[contador_002]['Codigo']:
+					print("O código informado já pertence a um item cadastrado ! Tente novamente ...")
+					continua_002 = True
+					break
+				else :
+					continua_002 = False
+
+
+# A partir daqui Mario, tenta ajustar esse trecho para baixo
+
 		itens["Nome"] = str(input("Digite o nome do produto : ")).strip()
 
 		itens["Descricao"] = str(input("Digite a descrição do produto : ")).strip()
@@ -121,8 +129,11 @@ def cadastrar():
 				break
 			print('O valor informado é inválido !')
 
+# Até aqui por enquanto.
+
 	valor_item = float(valor_item)
 	quantidade_itens = int(quantidade_itens)
+
 	itens["valor total"] = ( quantidade_itens * valor_item )
 
 	print()
@@ -130,7 +141,7 @@ def cadastrar():
 	lista_produtos.append(itens.copy())
 	salvar_produto(itens)
 	itens.clear()
-'''
+
 
 # ROTINA PARA EXIBIR O MENU CONSULTAR
 def consultar():
