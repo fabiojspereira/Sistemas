@@ -11,13 +11,14 @@ def limpa_tela():
 
 # ROTINA PARA EXIBIR O MENU PRINCIPAL
 def menu_principal():
+	limpa_tela()
 	continua_001 = True
 	while continua_001 == True:
 		print(f"{'MENU PRINCIPAL':<45}")
 		print()
-		print(f"{'1 - ':<3}{'Cadastro':<45}")
-		print(f"{'2 - ':<3}{'Consulta':<45}")
-		print(f"{'3 - ':<3}{'Remoção':<45}")
+		print(f"{'1 - ':<3}{'Cadastro de itens':<45}")
+		print(f"{'2 - ':<3}{'Consulta geral':<45}")
+		print(f"{'3 - ':<3}{'Remoção de itens':<45}")
 		print(f"{'4 - ':<3}{'Reservado ao sistema':<45}")
 		print(f"{'5 - ':<3}{'Reservado ao sistema':<45}")
 		print(f"{'6 - ':<3}{'Reservado ao sistema':<45}")
@@ -32,6 +33,9 @@ def menu_principal():
 
 		elif esc_001 == "3":
 			remover()
+
+		elif esc_001 == "4": # Menu criado apenas para fins de teste e recordação de dicionários dentro de listas
+			print(lista_produtos)
 
 		elif esc_001 == "9":
 			continua_002 = True
@@ -50,7 +54,7 @@ def menu_principal():
 					continua_001 = True
 					continua_002 = True
 
-		elif esc_001 in ("4", "5", "6"):
+		elif esc_001 in ("5", "6"):
 			print("Opção reservada ao sistema. Tente outra opção.")
 			continua_001 = True
 
@@ -64,8 +68,10 @@ def menu_principal():
 # ROTINA PARA EXIBIR O MENU CADASTRAR
 def cadastrar():
 	limpa_tela()
-
+	print("\nMENU CADASTRO DE PRODUTO")
 	continua_001 = True
+	continua_002 = True
+	continua_003 = True
 	while continua_001 == True:
 		qtd_itens = str(input("Digite a quantidade de produtos a serem cadastrados : "))
 		if qtd_itens.isnumeric() == False:
@@ -75,32 +81,27 @@ def cadastrar():
 			continua_001 = False
 
 	qtd_itens = int(qtd_itens)
-	for contador in range(0, qtd_itens):
-     
-		while True:
-			codigo_produto = input("Digite o código do produto : ")
-			if not codigo_produto.isdigit():
-				print("Codigo do produto inválido!")
-				continue
-			for produto in lista_produtos:
-				if produto['Codigo'] == codigo_produto:
-					print("O código informado já exste cadastrado")
-					codigo_produto = ''
-					continue
-			if codigo_produto.isdigit():
-				itens["Codigo"] = codigo_produto
-				break
-		while True:
-			itens["Nome"] = str(input("Digite o nome do produto : ")).strip()
-			if itens["Nome"]:
-				break
-			print("O nome do produto deve ser informado...")
 
-		while True:
-			itens["Descricao"] = str(input("Digite a descrição do produto : ")).strip()
-			if itens['Descricao']:
-				break
-			print("A descrição do produto deve ser informada...")
+	for contador_001 in range(0, qtd_itens):
+		while continua_002 == True:
+			itens['Codigo'] = input("Digite o código do produto : ")
+			if itens['Codigo'].isdigit() == False:
+				print("\nCódigo do produto inválido ! Tente novamente ...")
+				continua_002 = True
+			else :
+				continua_002 = False
+
+			while continua_003 == True:
+				for contador_002 in range(0, len(lista_produtos)):
+					if itens['Codigo'] == lista_produtos[contador_002]['Codigo']:
+						print("\nO código informado já pertence a um item cadastrado ! Tente novamente ...")
+						continua_003 = False
+						continua_002 = True
+
+'''
+		itens["Nome"] = str(input("Digite o nome do produto : ")).strip()
+
+		itens["Descricao"] = str(input("Digite a descrição do produto : ")).strip()
 
 		while True:
 			quantidade_itens = input("Digite a quantidade a ser cadastrada : ")
@@ -120,57 +121,68 @@ def cadastrar():
 				break
 			print('O valor informado é inválido !')
 
-		valor_item = float(valor_item)
-		quantidade_itens = int(quantidade_itens)
-		itens["valor total"] = ( quantidade_itens * valor_item )
+	valor_item = float(valor_item)
+	quantidade_itens = int(quantidade_itens)
+	itens["valor total"] = ( quantidade_itens * valor_item )
 
-		print()
+	print()
 
-		lista_produtos.append(itens.copy())
-		salvar_produto(itens)
-		itens.clear()
-
+	lista_produtos.append(itens.copy())
+	salvar_produto(itens)
+	itens.clear()
+'''
 
 # ROTINA PARA EXIBIR O MENU CONSULTAR
 def consultar():
 	limpa_tela()
-	print("Consulta de Produto cadastrado")
-	print(f"Quantidade de produtos cadastrados: {len(lista_produtos)}\n")
-	print(f"{'CÓDIGO':<10}{'NOME':<35}{'DESCRIÇÃO':<72}{'QUANTIDADE':<10}{'VALOR UNITÁRIO':>17}{'VALOR TOTAL DO PRODUTO':>27}")
+	print("\nMENU CONSULTA DE PRODUTO CADASTRADO")
+	print(f"Quantidade de produtos cadastrados : {len(lista_produtos)}\n")
+	print(f"{'CÓDIGO':<9}{'NOME':<32}{'DESCRIÇÃO':<68}{'QUANTIDADE':<10}{'VALOR UNITÁRIO':>17}{'VALORES TOTAIS':>19}")
 	for contador in range(0, len(lista_produtos)):
-		print(f"{lista_produtos[contador]['Codigo']:<10}{lista_produtos[contador]['Nome']:<35}{lista_produtos[contador]['Descricao']:<72}{lista_produtos[contador]['Quantidade']:>10}{'R$':>5}{lista_produtos[contador]['Valor']:>12.2f}{'R$':>7}{lista_produtos[contador]['valor total']:>20.2f}")
+		print(f"{lista_produtos[contador]['Codigo']:<9}{lista_produtos[contador]['Nome']:<32}{lista_produtos[contador]['Descricao']:<68}{lista_produtos[contador]['Quantidade']:>10}{'R$':>5}{lista_produtos[contador]['Valor']:>12.2f}{'R$':>7}{lista_produtos[contador]['valor total']:>12.2f}")
+	print()
+
+
+# ROTINA PARA EXIBIR O MENU CONSULTAR DE FORMA SIMPLIFICADA
+def consultar_simples():
+	print(f"{'CÓDIGO':<9}{'NOME':<32}{'DESCRIÇÃO':<68}{'QUANTIDADE':<10}{'VALOR UNITÁRIO':>17}{'VALORES TOTAIS':>19}")
+	for contador in range(0, len(lista_produtos)):
+		print(f"{lista_produtos[contador]['Codigo']:<9}{lista_produtos[contador]['Nome']:<32}{lista_produtos[contador]['Descricao']:<68}{lista_produtos[contador]['Quantidade']:>10}{'R$':>5}{lista_produtos[contador]['Valor']:>12.2f}{'R$':>7}{lista_produtos[contador]['valor total']:>12.2f}")
 	print()
 
 
 # ROTINA PARA EXIBIR O MENU REMOVER
 def remover():
-	while True:
+	continua_001 = True
+	while continua_001 == True:
 		limpa_tela()
-		print("Remoção de Produto cadastrado\n")
-		consultar()
-		codigo_produto = input("Informe o código do produto: ")
+		print("\nMENU REMOÇÃO DE PRODUTO CADASTRADO\n")
+		consultar_simples()
+		codigo_produto = input("Informe o código do produto a ser removido : ").strip()
 
 		for item in lista_produtos:
 			if item["Codigo"] == codigo_produto:
 				produto = item
 				lista_produtos.remove(item)
-				print(f"O produto {item['Nome']} foi removido!")
+				print(f"O produto {item['Nome']} foi removido com sucesso !")
 				break
-		
-		
+
 		atualizar_base(lista_produtos)
 
-		continua_004 = input("Deseja sair [S / N]? ").lower()
-		if continua_004 == "s":
+		continua_001 = input("Deseja voltar ao menu principal [ S / N ] ? ").lower()
+		if continua_001 == "s":
 			break
+		else :
+			continua_001 = False
 
-# SALVA OS DADOS DO PRODUTO NO ARQUIVO.
+
+# SALVA OS DADOS DO PRODUTO NO ARQUIVO
 def salvar_produto(dados_produto):
 	with open('produtos.txt', 'a') as produtos:
 		produtos.write(f'{str(dados_produto)}\n')
 
 
-# CARREGA OS DADOS DO PRODUTO QUE ESTÃO SALVOS NO ARQUIVO.
+# CARREGA OS DADOS DO PRODUTO QUE ESTÃO SALVOS NO ARQUIVO
 def ler_produtos():
 	with open('produtos.txt', 'r') as produtos:
 		lista = produtos.readlines()
@@ -187,11 +199,9 @@ def atualizar_base(l_pro):
     for produto in l_pro:
         salvar_produto(produto)
         
-        
 
 # PROGRAMA PRINCIPAL
-print(f"{'Programa : Cadastro 1.0':<60}")
-print()
+print(f"\n{'Programa : Cadastro 1.0':<60}")
 
 ler_produtos()
 
