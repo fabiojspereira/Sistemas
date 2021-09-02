@@ -107,9 +107,9 @@ def cadastrar():
 
 # A partir daqui Mario, tenta ajustar esse trecho para baixo
 
-		itens["Nome"] = str(input("Digite o nome do produto : ")).strip()
+		itens["Nome"] = input("Digite o nome do produto : ").strip()
 
-		itens["Descricao"] = str(input("Digite a descrição do produto : ")).strip()
+		itens["Descricao"] = input("Digite a descrição do produto : ").strip()
 
 		while True:
 			quantidade_itens = input("Digite a quantidade a ser cadastrada : ")
@@ -120,12 +120,9 @@ def cadastrar():
 
 		while True:
 			valor_item = input("Digite o valor unitário do produto : ").strip().replace(',', '.')
-			try:
-				valor_item = float(valor_item)
-			except:
-				pass
-			if isinstance(valor_item, float):
-				itens["Valor"] = valor_item
+			
+			if valor_item.replace('.','').isdigit():
+				itens["Valor"] = float(valor_item)
 				break
 			print('O valor informado é inválido !')
 
