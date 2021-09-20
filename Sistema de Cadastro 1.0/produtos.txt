@@ -1,9 +1,10 @@
 {'Codigo': '11', 'Nome': 'Smartphone Iphone XS', 'Descricao': 'Smartphone Iphone XS 4GB RAM, 32GB de armazenamento interno', 'Quantidade': '25', 'Valor': 6350.99, 'valor total': 158774.75}
 {'Codigo': '31', 'Nome': 'Smartphone Huawei P30 Pro', 'Descricao': 'Smartphone Huawei P30 Pro 8GB RAM, 256GB de armazenamento Interno', 'Quantidade': '20', 'Valor': 3200.0, 'valor total': 64000.0}
-{'Codigo': '54', 'Nome': 'Smartphone Xiaomi Mi Note 10', 'Descricao': 'Smartphone Xiaomi Mi Note 10 128GB Vers�o Global', 'Quantidade': '50', 'Valor': 3370.0, 'valor total': 168500.0}
+{'Codigo': '54', 'Nome': 'Smartphone Xiaomi Mi Note 10', 'Descricao': 'Smartphone Xiaomi Mi Note 10 128GB Versão Global', 'Quantidade': '50', 'Valor': 3370.0, 'valor total': 168500.0}
 {'Codigo': '22', 'Nome': 'Smartphone Samsung Galaxy S21', 'Descricao': 'Smartphone Samsung Galaxy S21 128GB 5G Wi-Fi Tela 6.2 8GB RAM', 'Quantidade': '12', 'Valor': 3828.99, 'valor total': 45947.88}
 {'Codigo': '120', 'Nome': 'Coca-cola', 'Descricao': 'Refrigerante Coca-cola 350ml', 'Quantidade': '10', 'Valor': 3.5, 'valor total': 35.0}
 {'Codigo': '21', 'Nome': 'Apple MacBook Pro 13"', 'Descricao': 'Apple MacBook Pro 13", Chip M1, 8GB RAM, 256GB SSD - Space Gray', 'Quantidade': '10', 'Valor': 9199.0, 'valor total': 91990.0}
-{'Codigo': '2', 'Nome': 'Produto 002', 'Descricao': 'Descri��o do produto 002', 'Quantidade': '2200', 'Valor': 2.22, 'valor total': 4884.0}
-{'Codigo': '1', 'Nome': 'Produto 001', 'Descricao': 'Descri��o do produto 001', 'Quantidade': '1100', 'Valor': 1.11, 'valor total': 1221.0}
-{'Codigo': '3', 'Nome': 'Produto 003', 'Descricao': 'Descri��o do produto 003', 'Quantidade': '3000', 'Valor': 3.33, 'valor total': 9990.0}
+{'Codigo': '1', 'Nome': '1', 'Descricao': '1', 'Quantidade': '1', 'Valor': 1.0, 'valor total': 1.0}
+{'Codigo': '2', 'Nome': '2', 'Descricao': '2', 'Quantidade': '2', 'Valor': 2.0, 'valor total': 4.0}
+{'Codigo': '3', 'Nome': '3', 'Descricao': '3', 'Quantidade': '3', 'Valor': 3.0, 'valor total': 9.0}
+{'Codigo': '4', 'Nome': '4', 'Descricao': '4', 'Quantidade': '4', 'Valor': 4.0, 'valor total': 16.0}

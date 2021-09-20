@@ -71,7 +71,6 @@ def cadastrar():
 	print("\nMENU CADASTRO DE PRODUTO")
 
 	continua_001 = True
-
 	while continua_001 == True:
 		qtd_itens = str(input("Digite a quantidade de produtos a serem cadastrados : "))
 		if qtd_itens.isnumeric() == False:
@@ -89,7 +88,7 @@ def cadastrar():
 
 			continua_003 = True
 			while continua_003 == True:
-				itens['Codigo'] = input("\nDigite o código do produto : ")
+				itens['Codigo'] = input("Digite o código do produto : ")
 				if itens['Codigo'].isdigit() == False:
 					print("\nCódigo do produto inválido ! Tente novamente ...")
 					continua_003 = True
@@ -104,29 +103,29 @@ def cadastrar():
 				else :
 					continua_002 = False
 
-
-# A partir daqui Mario, tenta ajustar esse trecho para baixo
-
 		itens["Nome"] = input("Digite o nome do produto : ").strip()
 
 		itens["Descricao"] = input("Digite a descrição do produto : ").strip()
 
-		while True:
+		continua_004 = True
+		while continua_004 == True:
 			quantidade_itens = input("Digite a quantidade a ser cadastrada : ")
-			if quantidade_itens.isdigit():
+			if quantidade_itens.isdigit() == True:
 				itens["Quantidade"] = quantidade_itens
-				break
-			print("Quantidade inválida !")
+				continua_004 = False
+			else:
+				print("Quantidade do produto inválido ! Tente novamente ...")
+				continua_004 = True
 
-		while True:
+		continua_005 = True
+		while continua_005 == True:
 			valor_item = input("Digite o valor unitário do produto : ").strip().replace(',', '.')
-			
-			if valor_item.replace('.','').isdigit():
+			if valor_item.replace('.', '').isdigit():
 				itens["Valor"] = float(valor_item)
-				break
-			print('O valor informado é inválido !')
-
-# Até aqui por enquanto.
+				continua_005 = False
+			else:
+				print('O valor informado é inválido !')
+				continua_005 = True
 
 		valor_item = float(valor_item)
 		quantidade_itens = int(quantidade_itens)
@@ -168,20 +167,54 @@ def remover():
 		consultar_simples()
 		codigo_produto = input("Informe o código do produto a ser removido : ").strip()
 
-		for item in lista_produtos:
-			if item["Codigo"] == codigo_produto:
-				produto = item
-				lista_produtos.remove(item)
-				print(f"O produto {item['Nome']} foi removido com sucesso !")
-				break
+		continua_002 = True
+		while continua_002 == True:
 
-		atualizar_base(lista_produtos)
+			for produto in lista_produtos:
 
-		continua_001 = input("Deseja voltar ao menu principal [ S / N ] ? ").lower()
-		if continua_001 == "s":
-			break
-		else :
-			continua_001 = False
+				if produto["Codigo"] == codigo_produto:
+					esc_001 = str(input(f"\033[1;31mDeseja remover o produto :\033[m {produto['Nome']} \033[1;31m? [ S / N ]\033[m")).strip().lower()[0]
+
+					if esc_001 == "s":
+						lista_produtos.remove(produto)
+						atualizar_base(lista_produtos)
+						print(f"O produto {produto['Nome']} com {produto['Quantidade']} unidade(s) foi removido com sucesso !")
+						continua_001 = True
+						continua_002 = False
+						break
+
+					elif esc_001 == "n":
+						print("\033[1;33mO produto não foi removido.\033[m")
+						continua_001 = True
+						continua_002 = False
+						break
+
+					else:
+						print("Opção inválida !")
+						continua_001 = True
+						continua_002 = True
+						break
+
+				elif produto["Codigo"] != codigo_produto:
+					print("\033[1;31mCódigo do produto não encontrado ou inválido ! Tente novamente ...\033[m")
+					#continua_002 = False
+					#break
+
+		continua_003 = True
+		while continua_003 == True:
+			esc_001 = input("Deseja voltar ao menu principal [ S / N ] ? ").lower()[0]
+			if esc_001 == "s":
+				continua_001 = False
+				continua_003 = False
+
+			elif esc_001 == 'n':
+				continua_001 = True
+				continua_003 = False
+
+			else:
+				print("Opção inválida !")
+				continua_001 = True
+				continua_003 = True
 
 
 # SALVA OS DADOS DO PRODUTO NO ARQUIVO
@@ -206,11 +239,19 @@ def atualizar_base(l_pro):
         base.write('')
     for produto in l_pro:
         salvar_produto(produto)
-        
+
 
 # PROGRAMA PRINCIPAL
 print(f"\n{'Programa : Cadastro 1.0':<60}")
-
 ler_produtos()
-
 menu_principal()
+
+# Comandos para melhor entendimento da lista de produtos onde cada item da lista é um dicionário
+''' 
+for contador in range ( 0, len(lista_produtos)) :
+for k, v in lista_produtos[0].items() :
+	print(f"a chave é {k} e o valor é {v}")	
+'''
+
+# elif produto["Codigo"] != codigo_produto:
+# print("\033[1;31mCódigo do produto não encontrado ou inválido ! Tente novamente ...\033[m")
