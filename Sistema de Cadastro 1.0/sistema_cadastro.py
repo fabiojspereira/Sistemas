@@ -11,19 +11,23 @@ def limpa_tela():
 
 # ROTINA PARA EXIBIR O MENU PRINCIPAL
 def menu_principal():
-	limpa_tela()
+	#limpa_tela()
 	continua_001 = True
 	while continua_001 == True:
-		print(f"{'MENU PRINCIPAL':<45}")
+		print("\033[0;30;46m{:>50}\033[m".format("Programação Python "))
+		print("\033[0;40m{:>50}\033[m".format("Equipe CFM "))
+		print("\033[37m{:>50}\033[m".format("Programa 001 : Controle de Estoque Ver 1.0 + git"))
+		print(f"\n\n\033[1;30;44m{' MENU PRINCIPAL':<50}\033[m")
 		print()
-		print(f"{'1 - ':<3}{'Cadastro de itens':<45}")
-		print(f"{'2 - ':<3}{'Consulta geral':<45}")
-		print(f"{'3 - ':<3}{'Remoção de itens':<45}")
-		print(f"{'4 - ':<3}{'Reservado ao sistema':<45}")
-		print(f"{'5 - ':<3}{'Reservado ao sistema':<45}")
-		print(f"{'6 - ':<3}{'Reservado ao sistema':<45}")
-		print(f"{'9 - ':<3}{'SAIR':<45}")
-		esc_001 = str(input("\nDigite uma opção : "))
+		print(f"{' 1 - ':<3}\033[0;30;44m{' Cadastro de itens':<45}\033[m")
+		print(f"{' 2 - ':<3}\033[0;30;44m{' Consulta de itens cadastrados':<45}\033[m")
+		print(f"{' 3 - ':<3}\033[0;30;44m{' Remoção de itens':<45}\033[m")
+		print(f"{' 4 - ':<3}\033[0;30;44m{' Reservado ao sistema':<45}\033[m")
+		print(f"{' 5 - ':<3}\033[0;30;44m{' Reservado ao sistema':<45}\033[m")
+		print(f"{' 6 - ':<3}\033[0;30;44m{' Reservado ao sistema':<45}\033[m")
+		print(f"{' 9 - ':<3}\033[1;30;41m{' SAIR DO PROGRAMA':<45}\033[m")
+		esc_001 = str(input(f"\n\033[1;30;42m{' Digite uma opção :':<20}\033[m"))
+
 
 		if esc_001 == "1":
 			cadastrar()
@@ -34,8 +38,11 @@ def menu_principal():
 		elif esc_001 == "3":
 			remover()
 
-		elif esc_001 == "4": # Menu criado apenas para fins de teste e recordação de dicionários dentro de listas
-			print(lista_produtos)
+		elif esc_001 == "4":
+			print("Menu criado apenas para fins de teste e recordação de dicionários dentro de listas")
+			for contador in range(0, len(lista_produtos)):
+				for k, v in lista_produtos[0].items():
+					print(f"a chave é {k} e o valor é {v}")
 
 		elif esc_001 == "9":
 			continua_002 = True
@@ -67,7 +74,7 @@ def menu_principal():
 
 # ROTINA PARA EXIBIR O MENU CADASTRAR
 def cadastrar():
-	limpa_tela()
+	#limpa_tela()
 	print("\nMENU CADASTRO DE PRODUTO")
 
 	continua_001 = True
@@ -141,7 +148,7 @@ def cadastrar():
 
 # ROTINA PARA EXIBIR O MENU CONSULTAR
 def consultar():
-	limpa_tela()
+	#limpa_tela()
 	print("\nMENU CONSULTA DE PRODUTO CADASTRADO")
 	print(f"Quantidade de produtos cadastrados : {len(lista_produtos)}\n")
 	print(f"{'CÓDIGO':<9}{'NOME':<32}{'DESCRIÇÃO':<68}{'QUANTIDADE':<10}{'VALOR UNITÁRIO':>17}{'VALORES TOTAIS':>19}")
@@ -162,7 +169,6 @@ def consultar_simples():
 def remover():
 	continua_001 = True
 	while continua_001 == True:
-		limpa_tela()
 		print("\nMENU REMOÇÃO DE PRODUTO CADASTRADO\n")
 		consultar_simples()
 		codigo_produto = input("Informe o código do produto a ser removido : ").strip()
@@ -171,9 +177,11 @@ def remover():
 		while continua_002 == True:
 
 			for produto in lista_produtos:
+				trigger = True # Variável responável por guardar informação sobre item pesquisado.
 
 				if produto["Codigo"] == codigo_produto:
-					esc_001 = str(input(f"\033[1;31mDeseja remover o produto :\033[m {produto['Nome']} \033[1;31m? [ S / N ]\033[m")).strip().lower()[0]
+					trigger = False
+					esc_001 = str(input(f"\033[1;31mDeseja remover o produto :\033[m {produto['Nome']} \033[1;31m?\033[m [ S / N ]")).strip().lower()[0]
 
 					if esc_001 == "s":
 						lista_produtos.remove(produto)
@@ -196,13 +204,15 @@ def remover():
 						break
 
 				elif produto["Codigo"] != codigo_produto:
-					print("\033[1;31mCódigo do produto não encontrado ou inválido ! Tente novamente ...\033[m")
-					#continua_002 = False
-					#break
+					continua_002 = False
+					#break Não pode ter break pois se o item não for achado de primeira, quebra a pesquisa.
+
+			if trigger == True:
+				print("\033[1;31mCódigo do produto não encontrado ou inválido ! Tente novamente ...\033[m")
 
 		continua_003 = True
 		while continua_003 == True:
-			esc_001 = input("Deseja voltar ao menu principal [ S / N ] ? ").lower()[0]
+			esc_001 = input("\nDeseja voltar ao menu principal [ S / N ] ? ").lower()[0]
 			if esc_001 == "s":
 				continua_001 = False
 				continua_003 = False
@@ -235,16 +245,17 @@ def ler_produtos():
 
 
 def atualizar_base(l_pro):
-    with open('produtos.txt', 'w') as base:
-        base.write('')
-    for produto in l_pro:
-        salvar_produto(produto)
+	with open('produtos.txt', 'w') as base:
+		base.write('')
+	for produto in l_pro:
+		salvar_produto(produto)
 
 
 # PROGRAMA PRINCIPAL
-print(f"\n{'Programa : Cadastro 1.0':<60}")
 ler_produtos()
 menu_principal()
+
+
 
 # Comandos para melhor entendimento da lista de produtos onde cada item da lista é um dicionário
 ''' 
@@ -252,6 +263,3 @@ for contador in range ( 0, len(lista_produtos)) :
 for k, v in lista_produtos[0].items() :
 	print(f"a chave é {k} e o valor é {v}")	
 '''
-
-# elif produto["Codigo"] != codigo_produto:
-# print("\033[1;31mCódigo do produto não encontrado ou inválido ! Tente novamente ...\033[m")

@@ -6,5 +6,3 @@
 {'Codigo': '21', 'Nome': 'Apple MacBook Pro 13"', 'Descricao': 'Apple MacBook Pro 13", Chip M1, 8GB RAM, 256GB SSD - Space Gray', 'Quantidade': '10', 'Valor': 9199.0, 'valor total': 91990.0}
 {'Codigo': '1', 'Nome': '1', 'Descricao': '1', 'Quantidade': '1', 'Valor': 1.0, 'valor total': 1.0}
 {'Codigo': '2', 'Nome': '2', 'Descricao': '2', 'Quantidade': '2', 'Valor': 2.0, 'valor total': 4.0}
-{'Codigo': '3', 'Nome': '3', 'Descricao': '3', 'Quantidade': '3', 'Valor': 3.0, 'valor total': 9.0}
-{'Codigo': '4', 'Nome': '4', 'Descricao': '4', 'Quantidade': '4', 'Valor': 4.0, 'valor total': 16.0}
