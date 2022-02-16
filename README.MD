@@ -2,4 +2,4 @@
 
 # Repositório :  Sistemas
 
-### Repositório criado para criação em conjunto de um sistema de cadastro de produtos.
+### Este repositório é destinado para criação em conjunto de um sistema de cadastro de produtos.
